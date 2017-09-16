@@ -67,9 +67,9 @@ parser.add_argument('--host-state',
 					help='The output of $HOSTSTATE$',
 					)
 
-parser.add_argument('--host-ack-author-name',
+parser.add_argument('--host-ack-author',
 					default=False,
-					help='The output of $HOSTACKAUTHORNAME$, just used in acknowlegements.',
+					help='The output of $HOSTACKAUTHOR$, just used in acknowlegements.',
 					)
 
 parser.add_argument('--notification-comment',
@@ -103,7 +103,7 @@ if (args.notification_type == 'RECOVERY'):
 	payload['text'] = '# ' + ok_icon + '\nHost ' + args.hostname + ' seems fine now.\nStatus: `' + args.host_output + '`'
 
 if (args.notification_type == 'ACKNOWLEDGEMENT'):
-	payload['text'] = '# ' + ack_icon + '\nHost ' + args.hostname + ' has been acknowleged by ' + args.host_ack_author_name + '.'
+	payload['text'] = '# ' + ack_icon + '\nHost ' + args.hostname + ' has been acknowleged by ' + args.host_ack_author + '.'
 	if (args.notification_comment != False):
 		payload['text'] += '\nComment: `' + args.notification_comment + '`'
 
