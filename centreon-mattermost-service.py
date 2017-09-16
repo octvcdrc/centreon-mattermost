@@ -103,42 +103,42 @@ if (args.icon_url != False):
 	payload['icon_url'] = args.icon_url
 
 if (args.notification_type == 'PROBLEM'):
-	payload['text'] = '# ' + warning_icon + '\nService ' + args.service_desc + ' on host ' + args.hostname + ' is ' + args.service_state + '\nStatus: `' + args.service_output + '`'
+	payload['text'] = '## ' + warning_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` is ' + args.service_state + '\nStatus: `' + args.service_output + '`'
 
 if (args.notification_type == 'RECOVERY'):
-	payload['text'] = '# ' + ok_icon + '\nService ' + args.service_desc + ' on host ' + args.hostname + ' seems fine now.\nStatus: `' + args.service_output + '`'
+	payload['text'] = '## ' + ok_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` seems fine now.\nStatus: `' + args.service_output + '`'
 
 if (args.notification_type == 'ACKNOWLEDGEMENT'):
-	payload['text'] = '# ' + ack_icon + '\nService ' + args.service_desc + ' on host ' + args.hostname + ' has been acknowleged by ' + args.service_ack_author + '.'
+	payload['text'] = '## ' + ack_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` has been acknowleged by `' + args.service_ack_author + '`.'
 	if (args.notification_comment != False):
 		payload['text'] += '\nComment: `' + args.notification_comment + '`'
 
 if (args.notification_type == 'FLAPPINGSTART'):
-	payload['text'] = '# ' + warning_icon + '\n' + args.service_desc + ' on host ' + args.hostname + ' has started flapping.'
+	payload['text'] = '## ' + warning_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` has started flapping.'
 
 if (args.notification_type == 'FLAPPINGSTOP'):
-	payload['text'] = '# ' + ok_icon + '\nService ' + args.service_desc + ' on host ' + args.hostname + ' has stopped flapping.'
+	payload['text'] = '## ' + ok_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` has stopped flapping.'
 
 if (args.notification_type == 'FLAPPINGDISABLED'):
-	payload['text'] = '# ' + info_icon + '\nFlapping of service ' + args.service_desc + ' on host ' + args.hostname + ' is disabled.'
+	payload['text'] = '## ' + info_icon + '\nFlapping of service `' + args.service_desc + '` on host `' + args.hostname + '` is disabled.'
 
 if (args.notification_type == 'DOWNTIMESTART'):
-	payload['text'] = '# ' + info_icon + '\nService ' + args.service_desc + ' on host ' + args.hostname + ' is now in downtime.'
+	payload['text'] = '## ' + info_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` is now in downtime.'
 	if (args.notification_comment != False):
 		payload['text'] += '\nComment: `' + args.notification_comment + '`'
 
 if (args.notification_type == 'DOWNTIMEEND'):
-	payload['text'] = '# ' + info_icon + '\nService ' + args.service_desc + ' on host ' + args.hostname + ' is no longer in downtime.'
+	payload['text'] = '## ' + info_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` is no longer in downtime.'
 	if (args.notification_comment != False):
 		payload['text'] += '\nComment: `' + args.notification_comment + '`'
 
 if (args.notification_type == 'DOWNTIMECANCELLED'):
-	payload['text'] = '# ' + info_icon + '\nDowntime of service ' + args.service_desc + ' on host ' + args.hostname + ' has been canceled.'
+	payload['text'] = '## ' + info_icon + '\nDowntime of service `' + args.service_desc + '` on host `' + args.hostname + '` has been canceled.'
 
 # Not sure if this is a valid notification type but it appears in the Centreon documentation so let's handle it.
 # Appears here : https://documentation.centreon.com/docs/centreon-engine/en/1.7/user/configuration/basics/standard_macros.html#notificationcomment
 if (args.notification_type == 'CUSTOM'):
-	payload['text'] = '## ' + info_icon + '\nService ' + args.service_desc + ' on host ' + args.hostname + ' just received a custom notification.'
+	payload['text'] = '## ' + info_icon + '\nService `' + args.service_desc + '` on host `' + args.hostname + '` just received a custom notification.'
 	if (args.notification_comment != False):
 		payload['text'] += '\nComment: `' + args.notification_comment + '`'
 
